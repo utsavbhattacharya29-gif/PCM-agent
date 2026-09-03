@@ -1,4 +1,5 @@
 from app.neural.llm import LocalLLM
+import json
 
 
 class PhysicsExplanationGenerator:
@@ -33,6 +34,18 @@ Explain:
 Keep the explanation concise and suitable for a student.
 
 Do not invent values or formulas.
+Return only the explanation, not JSON.
 """
 
-        return self.llm.generate(prompt)
+        response = self.llm.generate(prompt)
+
+        try:
+            data = json.loads(response)
+
+            if isinstance(data, dict) and "explanation" in data:
+                return data["explanation"]
+
+        except (json.JSONDecodeError, TypeError):
+            pass
+
+        return response
