@@ -1,1 +1,145 @@
+Physics is the study of matter, energy, motion, forces, and the interactions between them.
 
+Mechanics deals with the motion of objects and the forces that cause or change that motion.
+
+Kinematics describes motion without considering the forces responsible for it.
+
+Distance is the total path travelled by an object. It is a scalar quantity.
+
+Displacement is the shortest directed distance between an object's initial and final positions. It is a vector quantity.
+
+Speed is the rate of change of distance with respect to time.
+
+Velocity is the rate of change of displacement with respect to time.
+
+Acceleration is the rate of change of velocity with respect to time.
+
+Uniform motion occurs when an object covers equal distances in equal intervals of time.
+
+Newton's first law states that an object remains at rest or in uniform motion unless acted upon by a net external force.
+
+Newton's second law states that the net force on an object equals the rate of change of its momentum. For constant mass, F = m*a.
+
+Newton's third law states that for every action there is an equal and opposite reaction.
+
+Mass is a measure of the amount of matter in an object and is measured in kilograms.
+
+Weight is the gravitational force acting on an object. Near Earth's surface, weight is W = m*g.
+
+Momentum is the product of mass and velocity. p = m*v.
+
+Impulse is the change in momentum of an object and for a constant force is J = F*t.
+
+Work is done when a force causes displacement. For a constant force, W = F*d*cos(theta).
+
+Energy is the capacity to do work.
+
+Kinetic energy is the energy possessed by an object because of its motion. KE = 0.5*m*v^2.
+
+Potential energy is stored energy associated with position or configuration. Gravitational potential energy near Earth's surface is PE = m*g*h.
+
+Power is the rate at which work is done. P = W/t.
+
+The law of conservation of energy states that energy cannot be created or destroyed but can be transformed from one form to another.
+
+Gravitational force is the attractive force between masses and follows the inverse-square law.
+
+Acceleration due to gravity near Earth's surface is approximately 9.8 m/s^2.
+
+Density is mass per unit volume. rho = m/V.
+
+Pressure is force acting normally per unit area. P = F/A.
+
+Electric charge is a physical property responsible for electrical interactions.
+
+Electric current is the rate of flow of electric charge. I = Q/t.
+
+Potential difference is the work done per unit charge in moving a charge between two points.
+
+Resistance is the opposition offered by a material to the flow of electric current.
+
+Ohm's law states that the potential difference across a conductor is proportional to the current through it when physical conditions remain constant. V = I*R.
+
+Electrical power is the rate of electrical energy consumption. P = V*I.
+
+Electrical energy can be calculated from power and time using E = P*t.
+
+Electrostatic force is the force between electric charges and follows Coulomb's law.
+
+A conductor allows electric charge to flow relatively easily.
+
+An insulator strongly resists the movement of electric charge.
+
+Magnetic fields are regions around magnets or moving charges where magnetic forces can act.
+
+Electromagnetic induction is the production of an electromotive force due to a changing magnetic flux.
+
+Faraday's law relates induced electromotive force to the rate of change of magnetic flux.
+
+Lenz's law states that an induced current acts in a direction that opposes the change producing it.
+
+A wave is a disturbance that transfers energy from one location to another.
+
+Frequency is the number of complete oscillations or cycles per unit time.
+
+Wavelength is the distance between corresponding points on successive waves.
+
+Wave speed is related to frequency and wavelength by v = f*lambda.
+
+Reflection occurs when a wave or ray returns into its original medium after striking a surface.
+
+Refraction is the change in direction of a wave when it passes from one medium to another because its speed changes.
+
+The law of reflection states that the angle of incidence equals the angle of reflection.
+
+Snell's law describes the relationship between the angles of incidence and refraction in different media.
+
+A lens is a transparent optical element that refracts light to form images.
+
+The focal length of a lens is the distance between its optical centre and principal focus.
+
+The thin lens formula relates object distance, image distance, and focal length.
+
+Thermodynamics deals with heat, temperature, work, and energy transfer.
+
+Temperature is a measure related to the average kinetic energy of particles in a system.
+
+Heat is energy transferred between systems because of a temperature difference.
+
+The first law of thermodynamics expresses conservation of energy for thermodynamic systems.
+
+The second law of thermodynamics states that natural processes have a preferred direction and the entropy of an isolated system does not decrease.
+
+Boyle's law states that for a fixed amount of gas at constant temperature, pressure is inversely proportional to volume.
+
+Charles's law states that for a fixed amount of gas at constant pressure, volume is directly proportional to absolute temperature.
+
+A scalar quantity has magnitude only.
+
+A vector quantity has both magnitude and direction.
+
+SI units provide a standardized system for measuring physical quantities.
+
+The SI unit of length is the metre (m).
+
+The SI unit of mass is the kilogram (kg).
+
+The SI unit of time is the second (s).
+
+The SI unit of force is the newton (N).
+
+The SI unit of energy and work is the joule (J).
+
+The SI unit of power is the watt (W).
+
+The SI unit of pressure is the pascal (Pa).
+
+The SI unit of electric charge is the coulomb (C).
+
+The SI unit of electric current is the ampere (A).
+
+The SI unit of potential difference is the volt (V).
+
+The SI unit of resistance is the ohm (ohm).
+
+The SI unit of frequency is the hertz (Hz).
