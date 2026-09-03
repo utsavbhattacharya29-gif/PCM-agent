@@ -22,3 +22,6 @@ print(result["result"])
 
 print("\nVerification:")
 print(result["verification"])
+
+print("\nExplanation:")
+print(result["explanation"])
