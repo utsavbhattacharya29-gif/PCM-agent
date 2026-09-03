@@ -1,1 +1,89 @@
+MATHEMATICS CONCEPTS
 
+ALGEBRA
+
+A linear equation is an equation in which the highest power of the variable is one. A common form is ax + b = c, where a is not zero.
+
+A quadratic equation is a polynomial equation of degree two. Its standard form is ax^2 + bx + c = 0, where a is not zero.
+
+The quadratic formula can be used to find the roots of a quadratic equation. The roots are determined using the coefficients a, b, and c.
+
+The discriminant of a quadratic equation is b^2 - 4ac. If the discriminant is positive, there are two distinct real roots. If it is zero, there are two equal real roots. If it is negative, there are no real roots.
+
+Factorization is the process of expressing an algebraic expression as a product of simpler expressions.
+
+Like terms are terms that have the same variables raised to the same powers. Like terms can be combined using addition or subtraction.
+
+An equation remains balanced when the same operation is performed on both sides.
+
+
+COORDINATE GEOMETRY
+
+The distance between two points measures the straight-line separation between their coordinates.
+
+The midpoint of a line segment is the point exactly halfway between its two endpoints.
+
+The slope of a line measures its rate of change. It is the change in the y-coordinate divided by the change in the x-coordinate.
+
+A vertical line has an undefined slope.
+
+Parallel non-vertical lines have equal slopes.
+
+Two non-vertical lines are perpendicular when the product of their slopes is -1.
+
+
+SEQUENCES
+
+An arithmetic progression is a sequence in which the difference between consecutive terms is constant. This constant is called the common difference.
+
+A geometric progression is a sequence in which the ratio between consecutive non-zero terms is constant. This ratio is called the common ratio.
+
+The nth-term formula of an arithmetic progression allows a particular term to be calculated directly without listing all previous terms.
+
+The nth-term formula of a geometric progression similarly allows a particular term to be calculated directly.
+
+
+GEOMETRY
+
+The Pythagorean theorem applies to right-angled triangles. The square of the hypotenuse equals the sum of the squares of the other two sides.
+
+The area of a triangle is half the product of its base and corresponding height.
+
+The area of a circle depends on the square of its radius.
+
+The circumference of a circle is the distance around the circle.
+
+
+STATISTICS
+
+The arithmetic mean is calculated by dividing the sum of observations by the number of observations.
+
+The median is the middle value after observations have been arranged in order. If there is an even number of observations, the median is the average of the two middle values.
+
+The mode is the value that occurs most frequently in a dataset.
+
+
+PROBABILITY
+
+Probability measures the likelihood of an event.
+
+For equally likely outcomes, probability is the ratio of favourable outcomes to total possible outcomes.
+
+The probability of an event must lie between zero and one inclusive.
+
+A probability of zero represents an impossible event, while a probability of one represents a certain event.
+
+
+CALCULUS
+
+A derivative measures the instantaneous rate of change of a function.
+
+The derivative of a constant is zero.
+
+The power rule can be used to differentiate expressions containing powers of a variable.
+
+Integration can be viewed as the reverse operation of differentiation.
+
+An indefinite integral contains an arbitrary constant of integration, usually represented by C.
+
+A symbolic mathematics system can be used to calculate and verify derivatives and integrals exactly.
