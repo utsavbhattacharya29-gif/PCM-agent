@@ -1,1 +1,9 @@
-
+sympy
+pydantic
+transformers
+torch
+accelerate
+sentence-transformers
+faiss-cpu
+pandas
+numpy
