@@ -1,1 +1,122 @@
-
+[
+  {
+    "id": "newtons_second_law",
+    "topic": "mechanics",
+    "formula": "F = m*a",
+    "description": "Force equals mass multiplied by acceleration."
+  },
+  {
+    "id": "velocity",
+    "topic": "kinematics",
+    "formula": "v = u + a*t",
+    "description": "Final velocity of an object under constant acceleration."
+  },
+  {
+    "id": "displacement",
+    "topic": "kinematics",
+    "formula": "s = u*t + 0.5*a*t**2",
+    "description": "Displacement under constant acceleration."
+  },
+  {
+    "id": "velocity_displacement",
+    "topic": "kinematics",
+    "formula": "v**2 = u**2 + 2*a*s",
+    "description": "Relation between velocity, acceleration and displacement."
+  },
+  {
+    "id": "kinetic_energy",
+    "topic": "work_energy",
+    "formula": "KE = 0.5*m*v**2",
+    "description": "Kinetic energy of a moving object."
+  },
+  {
+    "id": "potential_energy",
+    "topic": "work_energy",
+    "formula": "PE = m*g*h",
+    "description": "Gravitational potential energy near Earth's surface."
+  },
+  {
+    "id": "work",
+    "topic": "work_energy",
+    "formula": "W = F*d*cos(theta)",
+    "description": "Work done by a constant force."
+  },
+  {
+    "id": "power",
+    "topic": "work_energy",
+    "formula": "P = W/t",
+    "description": "Power is work done per unit time."
+  },
+  {
+    "id": "momentum",
+    "topic": "mechanics",
+    "formula": "p = m*v",
+    "description": "Linear momentum of an object."
+  },
+  {
+    "id": "impulse",
+    "topic": "mechanics",
+    "formula": "J = F*t",
+    "description": "Impulse produced by a constant force."
+  },
+  {
+    "id": "ohms_law",
+    "topic": "electricity",
+    "formula": "V = I*R",
+    "description": "Voltage equals current multiplied by resistance."
+  },
+  {
+    "id": "electric_power",
+    "topic": "electricity",
+    "formula": "P = V*I",
+    "description": "Electrical power."
+  },
+  {
+    "id": "electric_charge",
+    "topic": "electricity",
+    "formula": "Q = I*t",
+    "description": "Charge transferred by a constant current."
+  },
+  {
+    "id": "coulombs_law",
+    "topic": "electrostatics",
+    "formula": "F = k*q1*q2/r**2",
+    "description": "Electrostatic force between two point charges."
+  },
+  {
+    "id": "gravitational_force",
+    "topic": "gravitation",
+    "formula": "F = G*m1*m2/r**2",
+    "description": "Gravitational force between two masses."
+  },
+  {
+    "id": "density",
+    "topic": "properties_of_matter",
+    "formula": "rho = m/V",
+    "description": "Density is mass per unit volume."
+  },
+  {
+    "id": "pressure",
+    "topic": "properties_of_matter",
+    "formula": "P = F/A",
+    "description": "Pressure is force per unit area."
+  },
+  {
+    "id": "wave_speed",
+    "topic": "waves",
+    "formula": "v = f*lambda",
+    "description": "Wave speed equals frequency multiplied by wavelength."
+  },
+  {
+    "id": "lens_formula",
+    "topic": "optics",
+    "formula": "1/f = 1/v - 1/u",
+    "description": "Thin lens formula."
+  },
+  {
+    "id": "magnification",
+    "topic": "optics",
+    "formula": "m = v/u",
+    "description": "Magnification produced by a thin lens."
+  }
+]
