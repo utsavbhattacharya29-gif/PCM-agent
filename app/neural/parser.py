@@ -1,5 +1,5 @@
-import json
 import re
+import json
 
 
 class MathParser:
@@ -9,229 +9,223 @@ class MathParser:
 
     def parse(self, question):
 
-        prompt = f"""
-Determine the mathematical operation requested in this question.
+        response = self.llm.generate(
+            f"""
+You are a mathematical problem parser.
+
+Convert the following question into JSON.
+
+Allowed operations:
+- solve_equation
+- simplify
+- expand
+- factor
+- differentiate
+- integrate
+
+JSON format:
+
+{{
+    "operation": "...",
+    "expression": "...",
+    "variable": "x"
+}}
+
+For solve_equation, use the key "equation" instead of "expression".
 
 Question:
 {question}
-
-Choose exactly one:
-
-solve_equation
-simplify
-expand
-factor
-differentiate
-integrate
-
-Return ONLY valid JSON in this format:
-
-{{"operation": "operation_name"}}
 """
+        )
 
-        response = self.llm.generate(prompt)
+        problem = self._parse_llm_response(response)
 
-        operation = self._extract_json(response)["operation"].strip().lower()
+        operation = problem.get("operation")
 
         if operation == "solve_equation":
-            return self._parse_equation(question)
+            equation = problem.get("equation")
 
-        expression = self._extract_expression(
-            question,
-            operation
-        )
+            if not equation:
+                equation = self._extract_expression(
+                    question,
+                    operation
+                )
+
+            variable = problem.get("variable", "x")
+
+            if "=" not in equation:
+                equation = equation + " = 0"
+
+            return {
+                "operation": operation,
+                "equation": equation.strip(),
+                "variable": variable
+            }
+
+        expression = problem.get("expression")
+
+        if not expression:
+            expression = self._extract_expression(
+                question,
+                operation
+            )
+
+        variable = problem.get("variable", "x")
 
         return {
             "operation": operation,
-            "expression": expression,
-            "variable": self._detect_variable(expression)
-        }
-
-    def _parse_equation(self, question):
-
-        equation = self._extract_equation(question)
-
-        variable = self._detect_variable(equation)
-
-        return {
-            "operation": "solve_equation",
-            "equation": equation,
+            "expression": expression.strip(),
             "variable": variable
         }
 
-    def _extract_equation(self, question):
+    def _parse_llm_response(self, response):
 
-        text = question.strip()
+        if isinstance(response, dict):
+            return response
 
-        match = re.search(
-            r"(.+?)\s*=\s*(.+)",
-            text
-        )
+        text = str(response).strip()
 
-        if not match:
-            raise ValueError(
-                "Could not find an equation containing '='."
-            )
-
-        left = match.group(1).strip()
-        right = match.group(2).strip()
-
-        left = re.sub(
-            r"^(.*?)(solve|find the roots of|find roots of|solve for|determine)\s+",
+        text = re.sub(
+            r"```json\s*",
             "",
-            left,
+            text,
             flags=re.IGNORECASE
         )
 
-        left = self._convert_expression(left)
-        right = self._convert_expression(right)
+        text = re.sub(
+            r"```\s*",
+            "",
+            text
+        )
 
-        return f"{left} = {right}"
+        match = re.search(
+            r"\{.*\}",
+            text,
+            re.DOTALL
+        )
+
+        if match:
+            try:
+                return json.loads(match.group(0))
+            except json.JSONDecodeError:
+                pass
+
+        operation_match = re.search(
+            r'"operation"\s*:\s*"([^"]+)"',
+            text
+        )
+
+        expression_match = re.search(
+            r'"expression"\s*:\s*"([^"]+)"',
+            text
+        )
+
+        equation_match = re.search(
+            r'"equation"\s*:\s*"([^"]+)"',
+            text
+        )
+
+        variable_match = re.search(
+            r'"variable"\s*:\s*"([^"]+)"',
+            text
+        )
+
+        result = {}
+
+        if operation_match:
+            result["operation"] = operation_match.group(1)
+
+        if expression_match:
+            result["expression"] = expression_match.group(1)
+
+        if equation_match:
+            result["equation"] = equation_match.group(1)
+
+        if variable_match:
+            result["variable"] = variable_match.group(1)
+
+        if result:
+            return result
+
+        raise ValueError(
+            "Could not parse LLM response into a mathematical problem."
+        )
 
     def _extract_expression(self, question, operation):
 
         text = question.strip()
 
-        operation_patterns = {
-            "simplify": r"^\s*simplify\s+(.+?)\s*$",
-
-            "expand": r"^\s*expand\s+(.+?)\s*$",
-
-            "factor": r"^\s*factor(?:ize|ise)?\s+(.+?)\s*$",
-
-            "differentiate": r"^\s*differentiate\s+(.+?)\s*$",
-
-            "integrate": r"^\s*integrate\s+(.+?)\s*$"
-        }
-
-        pattern = operation_patterns.get(operation)
-
-        if pattern:
+        if operation == "solve_equation":
 
             match = re.search(
-                pattern,
+                r"(?:solve|find\s+the\s+roots?\s+of|find\s+roots?\s+of)\s+(.+)",
                 text,
-                flags=re.IGNORECASE
+                re.IGNORECASE
             )
 
             if match:
-                return self._convert_expression(
-                    match.group(1)
-                )
+                expression = match.group(1).strip()
 
-        # Additional natural-language forms
+                if "=" not in expression:
+                    expression = expression + " = 0"
 
-        alternative_patterns = {
-            "factor": [
-                r"factor(?:ize|ise)?\s+(?:the\s+)?(.+)",
-                r"find\s+the\s+factors\s+of\s+(.+)"
-            ],
+                return expression
 
-            "differentiate": [
-                r"find\s+the\s+derivative\s+of\s+(.+)",
-                r"derivative\s+of\s+(.+)"
-            ],
-
-            "integrate": [
-                r"find\s+the\s+integral\s+of\s+(.+)",
-                r"integral\s+of\s+(.+)"
-            ],
-
-            "simplify": [
-                r"simplify\s+(?:the\s+)?(.+)"
-            ],
-
-            "expand": [
-                r"expand\s+(?:the\s+)?(.+)"
-            ]
-        }
-
-        for pattern in alternative_patterns.get(
-            operation,
-            []
-        ):
+        if operation == "simplify":
 
             match = re.search(
-                pattern,
+                r"(?:simplify)\s+(.+)",
                 text,
-                flags=re.IGNORECASE
+                re.IGNORECASE
             )
 
             if match:
-                return self._convert_expression(
-                    match.group(1)
-                )
+                return match.group(1).strip()
+
+        if operation == "expand":
+
+            match = re.search(
+                r"(?:expand)\s+(.+)",
+                text,
+                re.IGNORECASE
+            )
+
+            if match:
+                return match.group(1).strip()
+
+        if operation == "factor":
+
+            match = re.search(
+                r"(?:factor|factorize|factorise)\s+(.+)",
+                text,
+                re.IGNORECASE
+            )
+
+            if match:
+                return match.group(1).strip()
+
+        if operation == "differentiate":
+
+            match = re.search(
+                r"(?:differentiate|derivative\s+of|differentiate\s+the)\s+(.+)",
+                text,
+                re.IGNORECASE
+            )
+
+            if match:
+                return match.group(1).strip()
+
+        if operation == "integrate":
+
+            match = re.search(
+                r"(?:integrate|integral\s+of|find\s+the\s+integral\s+of)\s+(.+)",
+                text,
+                re.IGNORECASE
+            )
+
+            if match:
+                return match.group(1).strip()
 
         raise ValueError(
             f"Could not extract expression for operation: {operation}"
         )
-
-    def _convert_expression(self, expression):
-
-        expression = expression.strip()
-
-        expression = expression.replace("^", "**")
-
-        expression = expression.replace("×", "*")
-
-        expression = expression.replace("÷", "/")
-
-        expression = re.sub(
-            r"\s+",
-            " ",
-            expression
-        )
-
-        return expression
-
-    def _detect_variable(self, expression):
-
-        variables = re.findall(
-            r"\b[a-zA-Z]\b",
-            expression
-        )
-
-        ignored = {
-            "e",
-            "E"
-        }
-
-        variables = [
-            variable
-            for variable in variables
-            if variable not in ignored
-        ]
-
-        if variables:
-            return variables[0]
-
-        return "x"
-
-    def _extract_json(self, response):
-
-        response = response.strip()
-
-        response = re.sub(
-            r"```json\s*|\s*```",
-            "",
-            response
-        ).strip()
-
-        match = re.search(
-            r"\{.*\}",
-            response,
-            re.DOTALL
-        )
-
-        if not match:
-            raise ValueError(
-                "LLM did not return a valid JSON object."
-            )
-
-        try:
-            return json.loads(match.group())
-
-        except json.JSONDecodeError as error:
-            raise ValueError(
-                f"Invalid JSON returned by LLM: {response}"
-            ) from error
