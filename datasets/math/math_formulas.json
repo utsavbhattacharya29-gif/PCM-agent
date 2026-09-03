@@ -1,4 +1,3 @@
-%%writefile datasets/math/math_formulas.json
 [
   {
     "id": "linear_equation",
@@ -21,7 +20,7 @@
     "topic": "algebra",
     "name": "Quadratic Formula",
     "formula": "(-b + sqrt(b**2 - 4*a*c))/(2*a)",
-    "variables": ["a", "b", "c", "x"],
+    "variables": ["a", "b", "c"],
     "conditions": ["a != 0"]
   },
   {
