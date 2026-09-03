@@ -31,25 +31,21 @@ Return ONLY valid JSON in this format:
 
         response = self.llm.generate(prompt)
 
-        operation = self._extract_json(response)["operation"]
+        operation = self._extract_json(response)["operation"].strip().lower()
 
         if operation == "solve_equation":
             return self._parse_equation(question)
 
-        expression = self._extract_expression(question, operation)
+        expression = self._extract_expression(
+            question,
+            operation
+        )
 
-        result = {
+        return {
             "operation": operation,
-            "expression": expression
+            "expression": expression,
+            "variable": self._detect_variable(expression)
         }
-
-        if operation in {"differentiate", "integrate"}:
-            result["variable"] = self._detect_variable(expression)
-
-        else:
-            result["variable"] = self._detect_variable(expression)
-
-        return result
 
     def _parse_equation(self, question):
 
@@ -68,7 +64,7 @@ Return ONLY valid JSON in this format:
         text = question.strip()
 
         match = re.search(
-            r"(.+?)(?:=)(.+)",
+            r"(.+?)\s*=\s*(.+)",
             text
         )
 
@@ -77,8 +73,8 @@ Return ONLY valid JSON in this format:
                 "Could not find an equation containing '='."
             )
 
-        left = match.group(1)
-        right = match.group(2)
+        left = match.group(1).strip()
+        right = match.group(2).strip()
 
         left = re.sub(
             r"^(.*?)(solve|find the roots of|find roots of|solve for|determine)\s+",
@@ -88,7 +84,6 @@ Return ONLY valid JSON in this format:
         )
 
         left = self._convert_expression(left)
-
         right = self._convert_expression(right)
 
         return f"{left} = {right}"
@@ -97,27 +92,22 @@ Return ONLY valid JSON in this format:
 
         text = question.strip()
 
-        patterns = {
-            "simplify": [
-                r"simplify\s+(.+)",
-            ],
-            "expand": [
-                r"expand\s+(.+)",
-            ],
-            "factor": [
-                r"factor(?:ize|ise)?\s+(.+)",
-            ],
-            "differentiate": [
-                r"differentiate\s+(.+)",
-                r"derivative\s+of\s+(.+)",
-            ],
-            "integrate": [
-                r"integrate\s+(.+)",
-                r"integral\s+of\s+(.+)",
-            ]
+        operation_patterns = {
+            "simplify": r"^\s*simplify\s+(.+?)\s*$",
+
+            "expand": r"^\s*expand\s+(.+?)\s*$",
+
+            "factor": r"^\s*factor(?:ize|ise)?\s+(.+?)\s*$",
+
+            "differentiate": r"^\s*differentiate\s+(.+?)\s*$",
+
+            "integrate": r"^\s*integrate\s+(.+?)\s*$"
         }
 
-        for pattern in patterns.get(operation, []):
+        pattern = operation_patterns.get(operation)
+
+        if pattern:
+
             match = re.search(
                 pattern,
                 text,
@@ -125,8 +115,52 @@ Return ONLY valid JSON in this format:
             )
 
             if match:
-                expression = match.group(1).strip()
-                return self._convert_expression(expression)
+                return self._convert_expression(
+                    match.group(1)
+                )
+
+        # Additional natural-language forms
+
+        alternative_patterns = {
+            "factor": [
+                r"factor(?:ize|ise)?\s+(?:the\s+)?(.+)",
+                r"find\s+the\s+factors\s+of\s+(.+)"
+            ],
+
+            "differentiate": [
+                r"find\s+the\s+derivative\s+of\s+(.+)",
+                r"derivative\s+of\s+(.+)"
+            ],
+
+            "integrate": [
+                r"find\s+the\s+integral\s+of\s+(.+)",
+                r"integral\s+of\s+(.+)"
+            ],
+
+            "simplify": [
+                r"simplify\s+(?:the\s+)?(.+)"
+            ],
+
+            "expand": [
+                r"expand\s+(?:the\s+)?(.+)"
+            ]
+        }
+
+        for pattern in alternative_patterns.get(
+            operation,
+            []
+        ):
+
+            match = re.search(
+                pattern,
+                text,
+                flags=re.IGNORECASE
+            )
+
+            if match:
+                return self._convert_expression(
+                    match.group(1)
+                )
 
         raise ValueError(
             f"Could not extract expression for operation: {operation}"
