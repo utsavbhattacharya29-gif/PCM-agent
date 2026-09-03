@@ -7,6 +7,7 @@ class MathSolver:
         self.engine = SymbolicEngine()
 
     def solve(self, problem):
+
         operation = problem["operation"]
 
         if operation == "solve_equation":
@@ -28,6 +29,18 @@ class MathSolver:
         if operation == "factor":
             return self.engine.factor(
                 problem["expression"]
+            )
+
+        if operation == "differentiate":
+            return self.engine.differentiate(
+                problem["expression"],
+                problem["variable"]
+            )
+
+        if operation == "integrate":
+            return self.engine.integrate(
+                problem["expression"],
+                problem["variable"]
             )
 
         raise ValueError(f"Unknown operation: {operation}")
