@@ -1,1 +1,122 @@
-
+[
+  {
+    "id": "move_term_across_equation",
+    "topic": "algebra",
+    "rule": "When a term is moved from one side of an equation to the other, its sign changes.",
+    "example": "x + 5 = 10 becomes x = 10 - 5"
+  },
+  {
+    "id": "divide_equation",
+    "topic": "algebra",
+    "rule": "Both sides of an equation may be divided by the same non-zero quantity.",
+    "example": "2*x = 10 becomes x = 5"
+  },
+  {
+    "id": "multiply_equation",
+    "topic": "algebra",
+    "rule": "Both sides of an equation may be multiplied by the same quantity.",
+    "example": "x/2 = 5 becomes x = 10"
+  },
+  {
+    "id": "zero_product_rule",
+    "topic": "algebra",
+    "rule": "If the product of two factors is zero, at least one factor must be zero.",
+    "example": "(x-2)*(x-3)=0 gives x=2 or x=3"
+  },
+  {
+    "id": "quadratic_two_roots",
+    "topic": "algebra",
+    "rule": "A quadratic equation can have at most two roots.",
+    "example": "x**2 - 5*x + 6 = 0 has two roots"
+  },
+  {
+    "id": "discriminant_positive",
+    "topic": "algebra",
+    "rule": "If the discriminant is positive, a quadratic equation has two distinct real roots.",
+    "example": "D > 0 implies two distinct real roots"
+  },
+  {
+    "id": "discriminant_zero",
+    "topic": "algebra",
+    "rule": "If the discriminant is zero, a quadratic equation has two equal real roots.",
+    "example": "D = 0 implies equal roots"
+  },
+  {
+    "id": "discriminant_negative",
+    "topic": "algebra",
+    "rule": "If the discriminant is negative, a quadratic equation has no real roots.",
+    "example": "D < 0 implies no real roots"
+  },
+  {
+    "id": "division_by_zero",
+    "topic": "algebra",
+    "rule": "Division by zero is undefined.",
+    "example": "1/0 is undefined"
+  },
+  {
+    "id": "square_root_principal",
+    "topic": "algebra",
+    "rule": "The principal square root of a non-negative real number is non-negative.",
+    "example": "sqrt(25) = 5"
+  },
+  {
+    "id": "pythagorean_condition",
+    "topic": "geometry",
+    "rule": "The Pythagorean theorem applies to right-angled triangles.",
+    "example": "For a right triangle, a**2 + b**2 = c**2"
+  },
+  {
+    "id": "slope_parallel",
+    "topic": "coordinate_geometry",
+    "rule": "Two non-vertical parallel lines have equal slopes.",
+    "example": "m1 = m2"
+  },
+  {
+    "id": "slope_perpendicular",
+    "topic": "coordinate_geometry",
+    "rule": "Two non-vertical perpendicular lines have slopes whose product is -1.",
+    "example": "m1*m2 = -1"
+  },
+  {
+    "id": "ap_common_difference",
+    "topic": "sequences",
+    "rule": "In an arithmetic progression, the difference between consecutive terms is constant.",
+    "example": "5, 8, 11 has common difference 3"
+  },
+  {
+    "id": "gp_common_ratio",
+    "topic": "sequences",
+    "rule": "In a geometric progression, the ratio between consecutive non-zero terms is constant.",
+    "example": "2, 6, 18 has common ratio 3"
+  },
+  {
+    "id": "probability_range",
+    "topic": "probability",
+    "rule": "Probability always lies between 0 and 1 inclusive.",
+    "example": "0 <= P(A) <= 1"
+  },
+  {
+    "id": "mean_sum_relation",
+    "topic": "statistics",
+    "rule": "The mean equals the sum of observations divided by the number of observations.",
+    "example": "Mean = sum/n"
+  },
+  {
+    "id": "derivative_constant",
+    "topic": "calculus",
+    "rule": "The derivative of a constant is zero.",
+    "example": "d(5)/dx = 0"
+  },
+  {
+    "id": "derivative_sum",
+    "topic": "calculus",
+    "rule": "The derivative of a sum is the sum of the derivatives.",
+    "example": "d(f+g)/dx = f' + g'"
+  },
+  {
+    "id": "integral_constant",
+    "topic": "calculus",
+    "rule": "The indefinite integral includes an arbitrary constant of integration.",
+    "example": "integral(2*x) dx = x**2 + C"
+  }
+]
