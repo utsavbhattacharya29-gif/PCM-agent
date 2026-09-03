@@ -1,0 +1,114 @@
+[
+  {
+    "id": "linear_equation_problem",
+    "topic": "algebra",
+    "description": "Problem requiring the value of an unknown in a first-degree equation.",
+    "keywords": ["solve", "find x", "equation", "unknown"],
+    "operation": "solve_equation"
+  },
+  {
+    "id": "quadratic_equation_problem",
+    "topic": "algebra",
+    "description": "Problem requiring the roots of a second-degree polynomial equation.",
+    "keywords": ["quadratic", "roots", "solve", "equation"],
+    "operation": "solve_equation"
+  },
+  {
+    "id": "simplification_problem",
+    "topic": "algebra",
+    "description": "Problem requiring an algebraic expression to be simplified.",
+    "keywords": ["simplify", "simplification", "reduce"],
+    "operation": "simplify"
+  },
+  {
+    "id": "factorization_problem",
+    "topic": "algebra",
+    "description": "Problem requiring an algebraic expression to be expressed as factors.",
+    "keywords": ["factor", "factorize", "factorise"],
+    "operation": "factor"
+  },
+  {
+    "id": "expansion_problem",
+    "topic": "algebra",
+    "description": "Problem requiring multiplication and expansion of algebraic factors.",
+    "keywords": ["expand", "expansion", "multiply"],
+    "operation": "expand"
+  },
+  {
+    "id": "distance_problem",
+    "topic": "coordinate_geometry",
+    "description": "Problem requiring the distance between two coordinate points.",
+    "keywords": ["distance", "points", "coordinates"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "midpoint_problem",
+    "topic": "coordinate_geometry",
+    "description": "Problem requiring the midpoint of two coordinate points.",
+    "keywords": ["midpoint", "middle point", "coordinates"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "slope_problem",
+    "topic": "coordinate_geometry",
+    "description": "Problem requiring the slope of a line.",
+    "keywords": ["slope", "gradient", "line"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "ap_problem",
+    "topic": "sequences",
+    "description": "Problem involving arithmetic progression terms or sums.",
+    "keywords": ["arithmetic progression", "AP", "common difference", "nth term"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "gp_problem",
+    "topic": "sequences",
+    "description": "Problem involving geometric progression terms or sums.",
+    "keywords": ["geometric progression", "GP", "common ratio", "nth term"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "triangle_problem",
+    "topic": "geometry",
+    "description": "Problem involving triangle sides, area, or right-angle relationships.",
+    "keywords": ["triangle", "hypotenuse", "base", "height"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "circle_problem",
+    "topic": "geometry",
+    "description": "Problem involving the area or circumference of a circle.",
+    "keywords": ["circle", "radius", "area", "circumference"],
+    "operation": "formula_application"
+  },
+  {
+    "id": "statistics_mean_problem",
+    "topic": "statistics",
+    "description": "Problem requiring the arithmetic mean of observations.",
+    "keywords": ["mean", "average", "observations"],
+    "operation": "statistical_calculation"
+  },
+  {
+    "id": "probability_problem",
+    "topic": "probability",
+    "description": "Problem requiring calculation of the probability of an event.",
+    "keywords": ["probability", "event", "outcomes", "chance"],
+    "operation": "probability_calculation"
+  },
+  {
+    "id": "differentiation_problem",
+    "topic": "calculus",
+    "description": "Problem requiring the derivative of an expression.",
+    "keywords": ["differentiate", "derivative", "differentiate with respect to"],
+    "operation": "differentiate"
+  },
+  {
+    "id": "integration_problem",
+    "topic": "calculus",
+    "description": "Problem requiring the indefinite or definite integral of an expression.",
+    "keywords": ["integrate", "integration", "integral"],
+    "operation": "integrate"
+  }
+]
