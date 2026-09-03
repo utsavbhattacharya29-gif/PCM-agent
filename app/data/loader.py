@@ -30,6 +30,8 @@ class DatasetLoader:
         return {
             "formulas": self.load_json("math/math_formulas.json"),
             "rules": self.load_json("math/math_rules.json"),
+            "patterns": self.load_json("math/problem_patterns.json"),
+            "procedures": self.load_json("math/solution_procedures.json"),
             "examples": self.load_csv("math/math_examples.csv"),
             "concepts": self.load_txt("math/math_concepts.txt")
-        }
+    }
