@@ -19,3 +19,6 @@ for item in result["retrieved_knowledge"]:
 
 print("\nSymbolic Result:")
 print(result["result"])
+
+print("\nVerification:")
+print(result["verification"])
