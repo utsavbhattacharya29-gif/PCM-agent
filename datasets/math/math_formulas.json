@@ -1,1 +1,163 @@
-
+%%writefile datasets/math/math_formulas.json
+[
+  {
+    "id": "linear_equation",
+    "topic": "algebra",
+    "name": "Linear Equation",
+    "formula": "a*x + b = c",
+    "variables": ["a", "b", "c", "x"],
+    "conditions": ["a != 0"]
+  },
+  {
+    "id": "quadratic_equation",
+    "topic": "algebra",
+    "name": "Quadratic Equation",
+    "formula": "a*x**2 + b*x + c = 0",
+    "variables": ["a", "b", "c", "x"],
+    "conditions": ["a != 0"]
+  },
+  {
+    "id": "quadratic_formula",
+    "topic": "algebra",
+    "name": "Quadratic Formula",
+    "formula": "(-b + sqrt(b**2 - 4*a*c))/(2*a)",
+    "variables": ["a", "b", "c", "x"],
+    "conditions": ["a != 0"]
+  },
+  {
+    "id": "discriminant",
+    "topic": "algebra",
+    "name": "Discriminant",
+    "formula": "b**2 - 4*a*c",
+    "variables": ["a", "b", "c"],
+    "conditions": []
+  },
+  {
+    "id": "distance_formula",
+    "topic": "coordinate_geometry",
+    "name": "Distance Between Two Points",
+    "formula": "sqrt((x2-x1)**2 + (y2-y1)**2)",
+    "variables": ["x1", "y1", "x2", "y2"],
+    "conditions": []
+  },
+  {
+    "id": "midpoint_formula",
+    "topic": "coordinate_geometry",
+    "name": "Midpoint",
+    "formula": "((x1+x2)/2, (y1+y2)/2)",
+    "variables": ["x1", "y1", "x2", "y2"],
+    "conditions": []
+  },
+  {
+    "id": "slope_formula",
+    "topic": "coordinate_geometry",
+    "name": "Slope",
+    "formula": "(y2-y1)/(x2-x1)",
+    "variables": ["x1", "y1", "x2", "y2"],
+    "conditions": ["x2 != x1"]
+  },
+  {
+    "id": "section_formula",
+    "topic": "coordinate_geometry",
+    "name": "Section Formula",
+    "formula": "((m*x2+n*x1)/(m+n), (m*y2+n*y1)/(m+n))",
+    "variables": ["x1", "y1", "x2", "y2", "m", "n"],
+    "conditions": ["m+n != 0"]
+  },
+  {
+    "id": "ap_nth_term",
+    "topic": "sequences",
+    "name": "Nth Term of Arithmetic Progression",
+    "formula": "a + (n-1)*d",
+    "variables": ["a", "n", "d"],
+    "conditions": []
+  },
+  {
+    "id": "ap_sum",
+    "topic": "sequences",
+    "name": "Sum of Arithmetic Progression",
+    "formula": "n*(2*a+(n-1)*d)/2",
+    "variables": ["a", "n", "d"],
+    "conditions": []
+  },
+  {
+    "id": "gp_nth_term",
+    "topic": "sequences",
+    "name": "Nth Term of Geometric Progression",
+    "formula": "a*r**(n-1)",
+    "variables": ["a", "r", "n"],
+    "conditions": []
+  },
+  {
+    "id": "gp_sum",
+    "topic": "sequences",
+    "name": "Sum of Geometric Progression",
+    "formula": "a*(r**n-1)/(r-1)",
+    "variables": ["a", "r", "n"],
+    "conditions": ["r != 1"]
+  },
+  {
+    "id": "pythagorean_theorem",
+    "topic": "geometry",
+    "name": "Pythagorean Theorem",
+    "formula": "a**2 + b**2 = c**2",
+    "variables": ["a", "b", "c"],
+    "conditions": ["c is the hypotenuse"]
+  },
+  {
+    "id": "triangle_area",
+    "topic": "geometry",
+    "name": "Area of Triangle",
+    "formula": "base*height/2",
+    "variables": ["base", "height"],
+    "conditions": []
+  },
+  {
+    "id": "circle_area",
+    "topic": "geometry",
+    "name": "Area of Circle",
+    "formula": "pi*r**2",
+    "variables": ["r"],
+    "conditions": ["r > 0"]
+  },
+  {
+    "id": "circle_circumference",
+    "topic": "geometry",
+    "name": "Circumference of Circle",
+    "formula": "2*pi*r",
+    "variables": ["r"],
+    "conditions": ["r > 0"]
+  },
+  {
+    "id": "mean",
+    "topic": "statistics",
+    "name": "Arithmetic Mean",
+    "formula": "sum(values)/n",
+    "variables": ["values", "n"],
+    "conditions": ["n > 0"]
+  },
+  {
+    "id": "probability",
+    "topic": "probability",
+    "name": "Classical Probability",
+    "formula": "favourable/total",
+    "variables": ["favourable", "total"],
+    "conditions": ["total > 0"]
+  },
+  {
+    "id": "derivative_power_rule",
+    "topic": "calculus",
+    "name": "Power Rule",
+    "formula": "d(x**n)/dx = n*x**(n-1)",
+    "variables": ["x", "n"],
+    "conditions": []
+  },
+  {
+    "id": "integral_power_rule",
+    "topic": "calculus",
+    "name": "Power Rule for Integration",
+    "formula": "integral(x**n) dx = x**(n+1)/(n+1)",
+    "variables": ["x", "n"],
+    "conditions": ["n != -1"]
+  }
+]
