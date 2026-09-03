@@ -10,104 +10,168 @@ class MathParser:
     def parse(self, question):
 
         prompt = f"""
-You are a mathematics problem parser for a secondary-level mathematics tutoring system.
-
-Convert the user's question into exactly one structured JSON object.
+Determine the mathematical operation requested in this question.
 
 Question:
 {question}
 
-Choose the operation according to these rules:
+Choose exactly one:
 
-1. If the user asks to solve an equation, find roots, find solutions, or determine the value of a variable:
-   operation = "solve_equation"
+solve_equation
+simplify
+expand
+factor
+differentiate
+integrate
 
-2. If the user asks to simplify an expression:
-   operation = "simplify"
+Return ONLY valid JSON in this format:
 
-3. If the user asks to expand an expression:
-   operation = "expand"
-
-4. If the user asks to factorize or factor an expression:
-   operation = "factor"
-
-5. If the user asks to differentiate or find a derivative:
-   operation = "differentiate"
-
-6. If the user asks to integrate or find an integral:
-   operation = "integrate"
-
-For solve_equation, return:
-
-{{
-    "operation": "solve_equation",
-    "equation": "FULL EQUATION INCLUDING BOTH SIDES",
-    "variable": "x"
-}}
-
-For all other operations, return:
-
-{{
-    "operation": "OPERATION",
-    "expression": "SYMPY_COMPATIBLE_EXPRESSION",
-    "variable": "x"
-}}
-
-IMPORTANT:
-- Preserve the complete equation for solve_equation.
-- Include the "=" sign and both sides of the equation.
-- Do not remove "= 0" or any other right-hand side.
-- Convert mathematical notation into SymPy-compatible Python notation.
-
-Examples:
-
-Question: Solve x^2 + 5*x + 6 = 0
-
-Output:
-{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6 = 0", "variable": "x"}}
-
-Question: Find the roots of x^2 + 5*x + 6 = 0
-
-Output:
-{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6 = 0", "variable": "x"}}
-
-Question: Find the value of x if 2*x + 5 = 15
-
-Output:
-{{"operation": "solve_equation", "equation": "2*x + 5 = 15", "variable": "x"}}
-
-Question: Factor x^2 + 5*x + 6
-
-Output:
-{{"operation": "factor", "expression": "x**2 + 5*x + 6", "variable": "x"}}
-
-Question: Simplify 2*x + 3*x
-
-Output:
-{{"operation": "simplify", "expression": "2*x + 3*x", "variable": "x"}}
-
-Question: Expand (x + 2)*(x + 3)
-
-Output:
-{{"operation": "expand", "expression": "(x + 2)*(x + 3)", "variable": "x"}}
-
-Question: Differentiate x^3 + 2*x
-
-Output:
-{{"operation": "differentiate", "expression": "x**3 + 2*x", "variable": "x"}}
-
-Question: Integrate x^2
-
-Output:
-{{"operation": "integrate", "expression": "x**2", "variable": "x"}}
-
-Return ONLY valid JSON.
-Do not provide explanations.
+{{"operation": "operation_name"}}
 """
 
         response = self.llm.generate(prompt)
 
-        return self._extract_json(response)
+        operation = self._extract_json(response)["operation"]
+
+        if operation == "solve_equation":
+            return self._parse_equation(question)
+
+        expression = self._extract_expression(question, operation)
+
+        result = {
+            "operation": operation,
+            "expression": expression
+        }
+
+        if operation in {"differentiate", "integrate"}:
+            result["variable"] = self._detect_variable(expression)
+
+        else:
+            result["variable"] = self._detect_variable(expression)
+
+        return result
+
+    def _parse_equation(self, question):
+
+        equation = self._extract_equation(question)
+
+        variable = self._detect_variable(equation)
+
+        return {
+            "operation": "solve_equation",
+            "equation": equation,
+            "variable": variable
+        }
+
+    def _extract_equation(self, question):
+
+        text = question.strip()
+
+        match = re.search(
+            r"(.+?)(?:=)(.+)",
+            text
+        )
+
+        if not match:
+            raise ValueError(
+                "Could not find an equation containing '='."
+            )
+
+        left = match.group(1)
+        right = match.group(2)
+
+        left = re.sub(
+            r"^(.*?)(solve|find the roots of|find roots of|solve for|determine)\s+",
+            "",
+            left,
+            flags=re.IGNORECASE
+        )
+
+        left = self._convert_expression(left)
+
+        right = self._convert_expression(right)
+
+        return f"{left} = {right}"
+
+    def _extract_expression(self, question, operation):
+
+        text = question.strip()
+
+        patterns = {
+            "simplify": [
+                r"simplify\s+(.+)",
+            ],
+            "expand": [
+                r"expand\s+(.+)",
+            ],
+            "factor": [
+                r"factor(?:ize|ise)?\s+(.+)",
+            ],
+            "differentiate": [
+                r"differentiate\s+(.+)",
+                r"derivative\s+of\s+(.+)",
+            ],
+            "integrate": [
+                r"integrate\s+(.+)",
+                r"integral\s+of\s+(.+)",
+            ]
+        }
+
+        for pattern in patterns.get(operation, []):
+            match = re.search(
+                pattern,
+                text,
+                flags=re.IGNORECASE
+            )
+
+            if match:
+                expression = match.group(1).strip()
+                return self._convert_expression(expression)
+
+        raise ValueError(
+            f"Could not extract expression for operation: {operation}"
+        )
+
+    def _convert_expression(self, expression):
+
+        expression = expression.strip()
+
+        expression = expression.replace("^", "**")
+
+        expression = expression.replace("×", "*")
+
+        expression = expression.replace("÷", "/")
+
+        expression = re.sub(
+            r"\s+",
+            " ",
+            expression
+        )
+
+        return expression
+
+    def _detect_variable(self, expression):
+
+        variables = re.findall(
+            r"\b[a-zA-Z]\b",
+            expression
+        )
+
+        ignored = {
+            "e",
+            "E"
+        }
+
+        variables = [
+            variable
+            for variable in variables
+            if variable not in ignored
+        ]
+
+        if variables:
+            return variables[0]
+
+        return "x"
 
     def _extract_json(self, response):
 
@@ -132,6 +196,7 @@ Do not provide explanations.
 
         try:
             return json.loads(match.group())
+
         except json.JSONDecodeError as error:
             raise ValueError(
                 f"Invalid JSON returned by LLM: {response}"
