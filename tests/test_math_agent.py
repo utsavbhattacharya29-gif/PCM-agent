@@ -3,7 +3,7 @@ from app.agents.math_agent import MathAgent
 
 agent = MathAgent()
 
-question = "Differentiate x^3 + 2*x^2 + x"
+question = "Integrate x^2 + 2*x"
 
 result = agent.solve(question)
 
