@@ -3,7 +3,7 @@ from app.agents.math_agent import MathAgent
 
 agent = MathAgent()
 
-question = "Simplify 2*x + 3*x + 5"
+question = "Expand (x + 2)*(x + 3)"
 
 result = agent.solve(question)
 
