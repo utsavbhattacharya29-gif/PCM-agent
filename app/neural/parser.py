@@ -38,41 +38,71 @@ Choose the operation according to these rules:
    operation = "integrate"
 
 For solve_equation, return:
+
 {{
     "operation": "solve_equation",
-    "equation": "EXPRESSION = 0",
+    "equation": "FULL EQUATION INCLUDING BOTH SIDES",
     "variable": "x"
 }}
 
 For all other operations, return:
+
 {{
     "operation": "OPERATION",
     "expression": "SYMPY_COMPATIBLE_EXPRESSION",
     "variable": "x"
 }}
 
-Convert mathematical notation into SymPy-compatible Python notation.
+IMPORTANT:
+- Preserve the complete equation for solve_equation.
+- Include the "=" sign and both sides of the equation.
+- Do not remove "= 0" or any other right-hand side.
+- Convert mathematical notation into SymPy-compatible Python notation.
 
 Examples:
 
 Question: Solve x^2 + 5*x + 6 = 0
+
 Output:
-{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6", "variable": "x"}}
+{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6 = 0", "variable": "x"}}
+
+Question: Find the roots of x^2 + 5*x + 6 = 0
+
+Output:
+{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6 = 0", "variable": "x"}}
+
+Question: Find the value of x if 2*x + 5 = 15
+
+Output:
+{{"operation": "solve_equation", "equation": "2*x + 5 = 15", "variable": "x"}}
 
 Question: Factor x^2 + 5*x + 6
+
 Output:
 {{"operation": "factor", "expression": "x**2 + 5*x + 6", "variable": "x"}}
 
 Question: Simplify 2*x + 3*x
+
 Output:
 {{"operation": "simplify", "expression": "2*x + 3*x", "variable": "x"}}
 
+Question: Expand (x + 2)*(x + 3)
+
+Output:
+{{"operation": "expand", "expression": "(x + 2)*(x + 3)", "variable": "x"}}
+
 Question: Differentiate x^3 + 2*x
+
 Output:
 {{"operation": "differentiate", "expression": "x**3 + 2*x", "variable": "x"}}
 
+Question: Integrate x^2
+
+Output:
+{{"operation": "integrate", "expression": "x**2", "variable": "x"}}
+
 Return ONLY valid JSON.
-Do not explain your answer.
+Do not provide explanations.
 """
 
         response = self.llm.generate(prompt)
