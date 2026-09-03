@@ -4,6 +4,7 @@ from app.retrieval.retriever import MathRetriever
 from app.symbolic.solver import MathSolver
 from app.verification.verifier import MathVerifier
 from app.verification.validators import validate_problem
+from app.explanation.generator import ExplanationGenerator
 
 
 class MathAgent:
@@ -14,6 +15,7 @@ class MathAgent:
         self.retriever = MathRetriever()
         self.solver = MathSolver()
         self.verifier = MathVerifier()
+        self.explainer = ExplanationGenerator(self.llm)
 
     def solve(self, question):
 
@@ -33,10 +35,19 @@ class MathAgent:
             result
         )
 
+        explanation = self.explainer.generate(
+            question,
+            problem,
+            result,
+            knowledge,
+            verification.to_dict()
+        )
+
         return {
             "question": question,
             "problem": problem,
             "retrieved_knowledge": knowledge,
             "result": result,
-            "verification": verification.to_dict()
+            "verification": verification.to_dict(),
+            "explanation": explanation
         }
