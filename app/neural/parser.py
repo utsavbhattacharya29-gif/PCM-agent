@@ -10,38 +10,69 @@ class MathParser:
     def parse(self, question):
 
         prompt = f"""
-Convert the following secondary-level mathematics question into a structured JSON object.
+You are a mathematics problem parser for a secondary-level mathematics tutoring system.
+
+Convert the user's question into exactly one structured JSON object.
 
 Question:
 {question}
 
-Choose exactly one operation from:
-- solve_equation
-- simplify
-- expand
-- factor
-- differentiate
-- integrate
+Choose the operation according to these rules:
 
-Return ONLY valid JSON.
+1. If the user asks to solve an equation, find roots, find solutions, or determine the value of a variable:
+   operation = "solve_equation"
 
-For solve_equation use:
+2. If the user asks to simplify an expression:
+   operation = "simplify"
+
+3. If the user asks to expand an expression:
+   operation = "expand"
+
+4. If the user asks to factorize or factor an expression:
+   operation = "factor"
+
+5. If the user asks to differentiate or find a derivative:
+   operation = "differentiate"
+
+6. If the user asks to integrate or find an integral:
+   operation = "integrate"
+
+For solve_equation, return:
 {{
     "operation": "solve_equation",
-    "equation": "...",
+    "equation": "EXPRESSION = 0",
     "variable": "x"
 }}
 
-For simplify, expand, factor, differentiate, or integrate use:
+For all other operations, return:
 {{
-    "operation": "...",
-    "expression": "...",
+    "operation": "OPERATION",
+    "expression": "SYMPY_COMPATIBLE_EXPRESSION",
     "variable": "x"
 }}
 
-Convert mathematical notation into Python/SymPy-compatible notation.
+Convert mathematical notation into SymPy-compatible Python notation.
 
-Do not provide explanations.
+Examples:
+
+Question: Solve x^2 + 5*x + 6 = 0
+Output:
+{{"operation": "solve_equation", "equation": "x**2 + 5*x + 6", "variable": "x"}}
+
+Question: Factor x^2 + 5*x + 6
+Output:
+{{"operation": "factor", "expression": "x**2 + 5*x + 6", "variable": "x"}}
+
+Question: Simplify 2*x + 3*x
+Output:
+{{"operation": "simplify", "expression": "2*x + 3*x", "variable": "x"}}
+
+Question: Differentiate x^3 + 2*x
+Output:
+{{"operation": "differentiate", "expression": "x**3 + 2*x", "variable": "x"}}
+
+Return ONLY valid JSON.
+Do not explain your answer.
 """
 
         response = self.llm.generate(prompt)
