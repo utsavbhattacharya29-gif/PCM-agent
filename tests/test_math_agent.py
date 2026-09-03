@@ -3,7 +3,7 @@ from app.agents.math_agent import MathAgent
 
 agent = MathAgent()
 
-question = "Factor x^2 + 7*x + 12"
+question = "Simplify 2*x + 3*x + 5"
 
 result = agent.solve(question)
 
