@@ -11,9 +11,7 @@ class SymbolicEngine:
 
         symbol = sp.Symbol(variable)
 
-        solution = sp.solve(sp.Eq(lhs, rhs), symbol)
-
-        return solution
+        return sp.solve(sp.Eq(lhs, rhs), symbol)
 
     def simplify(self, expression):
         return sp.simplify(sp.sympify(expression))
@@ -23,3 +21,15 @@ class SymbolicEngine:
 
     def factor(self, expression):
         return sp.factor(sp.sympify(expression))
+
+    def differentiate(self, expression, variable):
+        expression = sp.sympify(expression)
+        symbol = sp.Symbol(variable)
+
+        return sp.diff(expression, symbol)
+
+    def integrate(self, expression, variable):
+        expression = sp.sympify(expression)
+        symbol = sp.Symbol(variable)
+
+        return sp.integrate(expression, symbol)
