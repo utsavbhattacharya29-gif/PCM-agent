@@ -35,3 +35,12 @@ class DatasetLoader:
             "examples": self.load_csv("math/math_examples.csv"),
             "concepts": self.load_txt("math/math_concepts.txt")
         }
+
+    def load_physics_datasets(self):
+        return {
+            "formulas": self.load_json("physics/physics_formulas.json"),
+            "laws": self.load_json("physics/physics_laws.json"),
+            "examples": self.load_csv("physics/physics_examples.csv"),
+            "concepts": self.load_txt("physics/physics_concepts.txt"),
+            "units": self.load_csv("physics/physics_units.csv")
+        }
