@@ -2,6 +2,8 @@ from app.neural.llm import LocalLLM
 from app.neural.physics_parser import PhysicsParser
 from app.retrieval.physics_retriever import PhysicsRetriever
 from app.symbolic.physics_solver import PhysicsSolver
+from app.verification.physics_verifier import PhysicsVerifier
+from app.explanation.physics_generator import PhysicsExplanationGenerator
 
 
 class PhysicsAgent:
@@ -11,6 +13,8 @@ class PhysicsAgent:
         self.parser = PhysicsParser(self.llm)
         self.retriever = PhysicsRetriever()
         self.solver = PhysicsSolver()
+        self.verifier = PhysicsVerifier()
+        self.explainer = PhysicsExplanationGenerator()
 
     def solve(self, question):
 
@@ -23,9 +27,23 @@ class PhysicsAgent:
 
         result = self.solver.solve(problem)
 
+        verification = self.verifier.verify(
+            problem,
+            result
+        )
+
+        explanation = self.explainer.generate(
+            question,
+            problem,
+            result,
+            verification
+        )
+
         return {
             "question": question,
             "problem": problem,
             "retrieved_knowledge": knowledge,
-            "result": result
+            "result": result,
+            "verification": verification,
+            "explanation": explanation
         }
