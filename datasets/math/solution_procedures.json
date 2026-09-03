@@ -1,0 +1,194 @@
+[
+  {
+    "id": "solve_linear_equation",
+    "problem_type": "linear_equation_problem",
+    "steps": [
+      "Identify the unknown variable.",
+      "Convert the equation into a standard symbolic form.",
+      "Simplify both sides of the equation.",
+      "Collect variable terms on one side and constant terms on the other side.",
+      "Isolate the variable.",
+      "Verify the solution by substituting it into the original equation."
+    ]
+  },
+  {
+    "id": "solve_quadratic_equation",
+    "problem_type": "quadratic_equation_problem",
+    "steps": [
+      "Write the equation in standard form ax^2 + bx + c = 0.",
+      "Identify the coefficients a, b, and c.",
+      "Calculate the discriminant b^2 - 4ac.",
+      "Determine the nature of the roots from the discriminant.",
+      "Solve for the roots using an appropriate method.",
+      "Substitute the roots into the original equation to verify them."
+    ]
+  },
+  {
+    "id": "simplify_expression",
+    "problem_type": "simplification_problem",
+    "steps": [
+      "Parse the mathematical expression.",
+      "Apply the correct order of operations.",
+      "Identify and combine like terms.",
+      "Apply algebraic identities when applicable.",
+      "Simplify the resulting expression.",
+      "Verify that the simplified expression is mathematically equivalent to the original."
+    ]
+  },
+  {
+    "id": "factor_expression",
+    "problem_type": "factorization_problem",
+    "steps": [
+      "Parse the algebraic expression.",
+      "Identify any common factors.",
+      "Apply appropriate factorization identities or methods.",
+      "Express the expression as a product of factors.",
+      "Expand the factors to verify the original expression is recovered."
+    ]
+  },
+  {
+    "id": "expand_expression",
+    "problem_type": "expansion_problem",
+    "steps": [
+      "Identify the factors in the expression.",
+      "Apply the distributive property.",
+      "Multiply the required terms.",
+      "Combine like terms.",
+      "Verify the expanded expression by symbolic simplification."
+    ]
+  },
+  {
+    "id": "distance_between_points",
+    "problem_type": "distance_problem",
+    "steps": [
+      "Identify the coordinates of both points.",
+      "Select the distance formula.",
+      "Substitute the coordinate values.",
+      "Calculate the squared coordinate differences.",
+      "Add the squared differences.",
+      "Take the square root.",
+      "Verify that the resulting distance is non-negative."
+    ]
+  },
+  {
+    "id": "find_midpoint",
+    "problem_type": "midpoint_problem",
+    "steps": [
+      "Identify the coordinates of both endpoints.",
+      "Select the midpoint formula.",
+      "Substitute the coordinate values.",
+      "Calculate the average of the x-coordinates.",
+      "Calculate the average of the y-coordinates.",
+      "Return the resulting midpoint."
+    ]
+  },
+  {
+    "id": "find_slope",
+    "problem_type": "slope_problem",
+    "steps": [
+      "Identify the coordinates of both points.",
+      "Calculate the difference between the y-coordinates.",
+      "Calculate the difference between the x-coordinates.",
+      "Check whether the denominator is zero.",
+      "Divide the coordinate differences to obtain the slope.",
+      "Verify the result."
+    ]
+  },
+  {
+    "id": "solve_ap_problem",
+    "problem_type": "ap_problem",
+    "steps": [
+      "Identify the first term.",
+      "Identify the common difference.",
+      "Identify the required term or number of terms.",
+      "Select the appropriate arithmetic progression formula.",
+      "Substitute the known values.",
+      "Calculate the result.",
+      "Verify the result using the definition of an arithmetic progression."
+    ]
+  },
+  {
+    "id": "solve_gp_problem",
+    "problem_type": "gp_problem",
+    "steps": [
+      "Identify the first term.",
+      "Identify the common ratio.",
+      "Identify the required term or number of terms.",
+      "Select the appropriate geometric progression formula.",
+      "Substitute the known values.",
+      "Calculate the result.",
+      "Verify the result using the definition of a geometric progression."
+    ]
+  },
+  {
+    "id": "solve_triangle_problem",
+    "problem_type": "triangle_problem",
+    "steps": [
+      "Identify the known sides, angles, base, or height.",
+      "Determine whether the triangle is right-angled when required.",
+      "Select the appropriate geometric relationship or formula.",
+      "Substitute the known values.",
+      "Perform the symbolic calculation.",
+      "Verify that the result satisfies the relevant geometric constraints."
+    ]
+  },
+  {
+    "id": "solve_circle_problem",
+    "problem_type": "circle_problem",
+    "steps": [
+      "Identify the radius or diameter.",
+      "Determine whether area or circumference is required.",
+      "Select the appropriate circle formula.",
+      "Substitute the known values.",
+      "Simplify the result.",
+      "Verify that the result is consistent with the given dimensions."
+    ]
+  },
+  {
+    "id": "calculate_mean",
+    "problem_type": "statistics_mean_problem",
+    "steps": [
+      "Identify all observations.",
+      "Count the number of observations.",
+      "Calculate the sum of the observations.",
+      "Divide the sum by the number of observations.",
+      "Verify that the mean lies within the minimum and maximum observations."
+    ]
+  },
+  {
+    "id": "solve_probability",
+    "problem_type": "probability_problem",
+    "steps": [
+      "Identify the sample space.",
+      "Determine the total number of possible outcomes.",
+      "Identify the favourable outcomes.",
+      "Calculate the probability as favourable outcomes divided by total outcomes when outcomes are equally likely.",
+      "Simplify the probability.",
+      "Verify that the probability lies between zero and one."
+    ]
+  },
+  {
+    "id": "differentiate_expression",
+    "problem_type": "differentiation_problem",
+    "steps": [
+      "Identify the variable with respect to which differentiation is required.",
+      "Parse the mathematical expression.",
+      "Select the appropriate differentiation rules.",
+      "Differentiate each applicable term.",
+      "Simplify the resulting expression.",
+      "Verify the derivative symbolically."
+    ]
+  },
+  {
+    "id": "integrate_expression",
+    "problem_type": "integration_problem",
+    "steps": [
+      "Identify the variable of integration.",
+      "Parse the mathematical expression.",
+      "Select the appropriate integration rule.",
+      "Integrate each applicable term.",
+      "Add the constant of integration for an indefinite integral.",
+      "Differentiate the result to verify the integral."
+    ]
+  }
+]
