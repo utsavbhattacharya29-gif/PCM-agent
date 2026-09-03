@@ -1,1 +1,122 @@
-
+[
+  {
+    "id": "newtons_first_law",
+    "topic": "mechanics",
+    "law": "An object remains at rest or in uniform motion in a straight line unless acted upon by a net external force.",
+    "principle": "Inertia"
+  },
+  {
+    "id": "newtons_second_law",
+    "topic": "mechanics",
+    "law": "The net force acting on an object equals the rate of change of its momentum.",
+    "principle": "F = m*a for constant mass"
+  },
+  {
+    "id": "newtons_third_law",
+    "topic": "mechanics",
+    "law": "For every action force, there is an equal and opposite reaction force.",
+    "principle": "Action and reaction"
+  },
+  {
+    "id": "law_of_conservation_of_energy",
+    "topic": "work_energy",
+    "law": "Energy cannot be created or destroyed; it can only be transformed from one form to another.",
+    "principle": "Total energy remains constant in an isolated system."
+  },
+  {
+    "id": "law_of_conservation_of_momentum",
+    "topic": "mechanics",
+    "law": "The total momentum of an isolated system remains constant when no external net force acts on it.",
+    "principle": "Momentum before interaction equals momentum after interaction."
+  },
+  {
+    "id": "law_of_universal_gravitation",
+    "topic": "gravitation",
+    "law": "Every two masses attract each other with a force proportional to the product of their masses and inversely proportional to the square of their separation.",
+    "principle": "F = G*m1*m2/r**2"
+  },
+  {
+    "id": "coulombs_law",
+    "topic": "electrostatics",
+    "law": "The electrostatic force between two point charges is proportional to the product of their charges and inversely proportional to the square of their separation.",
+    "principle": "F = k*q1*q2/r**2"
+  },
+  {
+    "id": "ohms_law",
+    "topic": "electricity",
+    "law": "For a conductor at constant temperature, the current through it is directly proportional to the potential difference across it.",
+    "principle": "V = I*R"
+  },
+  {
+    "id": "kirchhoffs_current_law",
+    "topic": "electricity",
+    "law": "The algebraic sum of currents entering a junction equals the algebraic sum of currents leaving the junction.",
+    "principle": "Conservation of electric charge"
+  },
+  {
+    "id": "kirchhoffs_voltage_law",
+    "topic": "electricity",
+    "law": "The algebraic sum of potential differences around any closed circuit is zero.",
+    "principle": "Conservation of energy"
+  },
+  {
+    "id": "law_of_reflection",
+    "topic": "optics",
+    "law": "The angle of incidence is equal to the angle of reflection.",
+    "principle": "Incident ray, reflected ray and normal lie in the same plane."
+  },
+  {
+    "id": "snells_law",
+    "topic": "optics",
+    "law": "The ratio of the sine of the angle of incidence to the sine of the angle of refraction is constant for two given media.",
+    "principle": "n1*sin(i) = n2*sin(r)"
+  },
+  {
+    "id": "hookes_law",
+    "topic": "mechanics",
+    "law": "Within the elastic limit, the extension of an elastic material is proportional to the applied force.",
+    "principle": "F = k*x"
+  },
+  {
+    "id": "boyles_law",
+    "topic": "thermodynamics",
+    "law": "For a fixed amount of gas at constant temperature, pressure is inversely proportional to volume.",
+    "principle": "P*V = constant"
+  },
+  {
+    "id": "charles_law",
+    "topic": "thermodynamics",
+    "law": "For a fixed amount of gas at constant pressure, volume is directly proportional to absolute temperature.",
+    "principle": "V/T = constant"
+  },
+  {
+    "id": "first_law_thermodynamics",
+    "topic": "thermodynamics",
+    "law": "The change in internal energy of a system equals the heat supplied to the system minus the work done by the system.",
+    "principle": "Delta_U = Q - W"
+  },
+  {
+    "id": "second_law_thermodynamics",
+    "topic": "thermodynamics",
+    "law": "Heat naturally flows from a hotter body to a colder body, and the entropy of an isolated system does not decrease.",
+    "principle": "Entropy tends to increase."
+  },
+  {
+    "id": "faradays_law",
+    "topic": "electromagnetism",
+    "law": "The induced electromotive force in a circuit is proportional to the rate of change of magnetic flux through the circuit.",
+    "principle": "E = -dPhi/dt"
+  },
+  {
+    "id": "lenzs_law",
+    "topic": "electromagnetism",
+    "law": "The direction of an induced current opposes the change in magnetic flux that produces it.",
+    "principle": "The negative sign in Faraday's law represents opposition to the change."
+  },
+  {
+    "id": "wave_superposition",
+    "topic": "waves",
+    "law": "When two or more waves overlap, the resultant displacement is the algebraic sum of their individual displacements.",
+    "principle": "Superposition principle"
+  }
+]
