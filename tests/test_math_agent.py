@@ -1,1 +1,21 @@
+from app.agents.math_agent import MathAgent
 
+
+agent = MathAgent()
+
+question = "Find the roots of x^2 + 5*x + 6 = 0"
+
+result = agent.solve(question)
+
+print("Question:")
+print(result["question"])
+
+print("\nParsed Problem:")
+print(result["problem"])
+
+print("\nRetrieved Knowledge:")
+for item in result["retrieved_knowledge"]:
+    print(item)
+
+print("\nSymbolic Result:")
+print(result["result"])
