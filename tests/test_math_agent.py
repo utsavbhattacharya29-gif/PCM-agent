@@ -3,7 +3,7 @@ from app.agents.math_agent import MathAgent
 
 agent = MathAgent()
 
-question = "Find the roots of x^2 + 5*x + 6 = 0"
+question = "Factor x^2 + 7*x + 12"
 
 result = agent.solve(question)
 
