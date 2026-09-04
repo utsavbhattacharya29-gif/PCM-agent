@@ -1,1 +1,122 @@
-
+[
+  {
+    "id": "mass_conservation",
+    "topic": "chemical_reactions",
+    "rule": "Mass is conserved in a chemical reaction.",
+    "principle": "Total mass of reactants equals total mass of products."
+  },
+  {
+    "id": "balancing_equations",
+    "topic": "chemical_reactions",
+    "rule": "Chemical equations must be balanced.",
+    "principle": "The number of atoms of each element must be equal on both sides."
+  },
+  {
+    "id": "combination_reaction",
+    "topic": "chemical_reactions",
+    "rule": "Two or more substances can combine to form one product.",
+    "principle": "A + B produces AB."
+  },
+  {
+    "id": "decomposition_reaction",
+    "topic": "chemical_reactions",
+    "rule": "A compound can break down into simpler substances.",
+    "principle": "AB produces A + B."
+  },
+  {
+    "id": "single_displacement",
+    "topic": "chemical_reactions",
+    "rule": "A more reactive element can replace a less reactive element.",
+    "principle": "A + BC produces AC + B."
+  },
+  {
+    "id": "double_displacement",
+    "topic": "chemical_reactions",
+    "rule": "Two ionic compounds can exchange ions.",
+    "principle": "AB + CD produces AD + CB."
+  },
+  {
+    "id": "combustion",
+    "topic": "chemical_reactions",
+    "rule": "Hydrocarbons commonly react with oxygen to form carbon dioxide and water.",
+    "principle": "Hydrocarbon + O2 produces CO2 + H2O."
+  },
+  {
+    "id": "acid_base_neutralization",
+    "topic": "acids_bases",
+    "rule": "An acid reacts with a base to form salt and water.",
+    "principle": "Acid + Base produces Salt + Water."
+  },
+  {
+    "id": "strong_acid",
+    "topic": "acids_bases",
+    "rule": "Strong acids ionize almost completely in water.",
+    "principle": "Examples include HCl, HNO3 and H2SO4."
+  },
+  {
+    "id": "strong_base",
+    "topic": "acids_bases",
+    "rule": "Strong bases dissociate almost completely in water.",
+    "principle": "Examples include NaOH and KOH."
+  },
+  {
+    "id": "oxidation",
+    "topic": "redox",
+    "rule": "Oxidation involves loss of electrons.",
+    "principle": "Oxidation increases oxidation number."
+  },
+  {
+    "id": "reduction",
+    "topic": "redox",
+    "rule": "Reduction involves gain of electrons.",
+    "principle": "Reduction decreases oxidation number."
+  },
+  {
+    "id": "redox",
+    "topic": "redox",
+    "rule": "Oxidation and reduction occur together in a redox reaction.",
+    "principle": "Electrons lost by one species are gained by another."
+  },
+  {
+    "id": "le_chatelier",
+    "topic": "equilibrium",
+    "rule": "A system at equilibrium shifts to oppose an applied change.",
+    "principle": "Changing concentration, pressure or temperature can shift equilibrium."
+  },
+  {
+    "id": "catalyst",
+    "topic": "chemical_kinetics",
+    "rule": "A catalyst increases reaction rate without being permanently consumed.",
+    "principle": "A catalyst lowers activation energy."
+  },
+  {
+    "id": "temperature_rate",
+    "topic": "chemical_kinetics",
+    "rule": "Increasing temperature generally increases reaction rate.",
+    "principle": "More particles have sufficient energy to overcome activation energy."
+  },
+  {
+    "id": "pressure_equilibrium",
+    "topic": "equilibrium",
+    "rule": "Increasing pressure favors the side with fewer gas molecules.",
+    "principle": "This applies to gaseous equilibrium systems."
+  },
+  {
+    "id": "solubility",
+    "topic": "solutions",
+    "rule": "Solubility describes the maximum amount of solute that dissolves under specified conditions.",
+    "principle": "Solubility depends on temperature, pressure and the substances involved."
+  },
+  {
+    "id": "mole_ratio",
+    "topic": "stoichiometry",
+    "rule": "Coefficients in a balanced equation represent mole ratios.",
+    "principle": "These ratios are used to calculate amounts of reactants and products."
+  },
+  {
+    "id": "limiting_reagent",
+    "topic": "stoichiometry",
+    "rule": "The limiting reagent determines the maximum amount of product formed.",
+    "principle": "It is consumed first during the reaction."
+  }
+]
