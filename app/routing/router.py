@@ -1,3 +1,4 @@
+from app.neural.llm import LocalLLM
 from app.agents.math_agent import MathAgent
 from app.agents.physics_agent import PhysicsAgent
 from app.agents.chemistry_agent import ChemistryAgent
@@ -6,33 +7,74 @@ from app.agents.chemistry_agent import ChemistryAgent
 class Router:
 
     def __init__(self):
-        self.math_agent = MathAgent()
-        self.physics_agent = PhysicsAgent()
-        self.chemistry_agent = ChemistryAgent()
+        self.llm = LocalLLM()
+
+        self.math_agent = MathAgent(self.llm)
+        self.physics_agent = PhysicsAgent(self.llm)
+        self.chemistry_agent = ChemistryAgent(self.llm)
 
     def classify(self, question):
 
         q = question.lower()
 
         physics_keywords = [
-            "force", "mass", "acceleration", "velocity",
-            "speed", "momentum", "gravity", "gravitational",
-            "kinetic energy", "potential energy", "work",
-            "power", "displacement", "newton", "joule",
-            "watt", "m/s", "m/s^2", "kg", "friction",
-            "pressure", "density", "voltage", "current",
-            "resistance", "frequency", "wavelength"
+            "force",
+            "mass",
+            "acceleration",
+            "velocity",
+            "speed",
+            "momentum",
+            "gravity",
+            "gravitational",
+            "kinetic energy",
+            "potential energy",
+            "work",
+            "power",
+            "displacement",
+            "newton",
+            "joule",
+            "watt",
+            "m/s",
+            "m/s^2",
+            "kg",
+            "friction",
+            "pressure",
+            "density",
+            "voltage",
+            "current",
+            "resistance",
+            "frequency",
+            "wavelength"
         ]
 
         chemistry_keywords = [
-            "mole", "moles", "molar", "molarity",
-            "molality", "molar mass", "element",
-            "atomic number", "atomic mass", "compound",
-            "chemical", "reaction", "reactant", "product",
-            "periodic table", "acid", "base",
-            "concentration", "stoichiometry", "oxidation",
-            "reduction", "electron", "proton", "neutron",
-            "h2o", "co2", "nacl"
+            "mole",
+            "moles",
+            "molar",
+            "molarity",
+            "molality",
+            "molar mass",
+            "element",
+            "atomic number",
+            "atomic mass",
+            "compound",
+            "chemical",
+            "reaction",
+            "reactant",
+            "product",
+            "periodic table",
+            "acid",
+            "base",
+            "concentration",
+            "stoichiometry",
+            "oxidation",
+            "reduction",
+            "electron",
+            "proton",
+            "neutron",
+            "h2o",
+            "co2",
+            "nacl"
         ]
 
         for keyword in physics_keywords:
