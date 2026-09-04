@@ -8,9 +8,10 @@ class Router:
 
     def __init__(self):
         self.llm = LocalLLM()
-        self.math_agent = MathAgent()
-        self.physics_agent = PhysicsAgent()
-        self.chemistry_agent = ChemistryAgent()
+
+        self.math_agent = MathAgent(self.llm)
+        self.physics_agent = PhysicsAgent(self.llm)
+        self.chemistry_agent = ChemistryAgent(self.llm)
 
     def classify(self, question):
 
