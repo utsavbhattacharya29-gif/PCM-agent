@@ -1,4 +1,3 @@
-from app.neural.llm import LocalLLM
 from app.agents.math_agent import MathAgent
 from app.agents.physics_agent import PhysicsAgent
 from app.agents.chemistry_agent import ChemistryAgent
@@ -7,41 +6,45 @@ from app.agents.chemistry_agent import ChemistryAgent
 class Router:
 
     def __init__(self):
-        self.llm = LocalLLM()
-
-        self.math_agent = MathAgent(self.llm)
-        self.physics_agent = PhysicsAgent(self.llm)
-        self.chemistry_agent = ChemistryAgent(self.llm)
+        self.math_agent = MathAgent()
+        self.physics_agent = PhysicsAgent()
+        self.chemistry_agent = ChemistryAgent()
 
     def classify(self, question):
 
-        prompt = f"""
-Classify the following question into exactly one category:
+        q = question.lower()
 
-math
-physics
-chemistry
+        physics_keywords = [
+            "force", "mass", "acceleration", "velocity",
+            "speed", "momentum", "gravity", "gravitational",
+            "kinetic energy", "potential energy", "work",
+            "power", "distance", "displacement", "newton",
+            "joule", "watt", "meter", "m/s", "m/s^2",
+            "kg", "friction", "pressure", "density",
+            "electric", "voltage", "current", "resistance",
+            "frequency", "wavelength"
+        ]
 
-Question:
-{question}
+        chemistry_keywords = [
+            "mole", "moles", "molar", "molarity",
+            "molality", "molar mass", "element",
+            "atomic number", "atomic mass", "compound",
+            "chemical", "reaction", "reactant", "product",
+            "periodic table", "ph", "acid", "base",
+            "concentration", "stoichiometry", "oxidation",
+            "reduction", "electron", "proton", "neutron",
+            "h2o", "co2", "nacl"
+        ]
 
-Return only one word: math, physics, or chemistry.
-"""
+        for keyword in physics_keywords:
+            if keyword in q:
+                return "physics"
 
-        category = self.llm.generate(prompt).strip().lower()
+        for keyword in chemistry_keywords:
+            if keyword in q:
+                return "chemistry"
 
-        if "math" in category:
-            return "math"
-
-        if "physics" in category:
-            return "physics"
-
-        if "chemistry" in category:
-            return "chemistry"
-
-        raise ValueError(
-            f"Could not classify question: {question}"
-        )
+        return "math"
 
     def solve(self, question):
 
