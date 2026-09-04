@@ -44,32 +44,22 @@ class DatasetLoader:
             "concepts": self.load_txt("physics/physics_concepts.txt"),
             "units": self.load_csv("physics/physics_units.csv")
         }
+
     def load_chemistry_datasets(self):
-
-    formulas = self.load_json(
-        "chemistry/chemistry_formulas.json"
-    )
-
-    reaction_rules = self.load_json(
-        "chemistry/reaction_rules.json"
-    )
-
-    examples = self.load_csv(
-        "chemistry/chemistry_examples.csv"
-    )
-
-    periodic_table = self.load_csv(
-        "chemistry/periodic_table.csv"
-    )
-
-    concepts = self.load_text(
-        "chemistry/chemistry_concepts.txt"
-    )
-
-    return {
-        "formulas": formulas,
-        "reaction_rules": reaction_rules,
-        "examples": examples,
-        "periodic_table": periodic_table,
-        "concepts": concepts
-    }
+        return {
+            "formulas": self.load_json(
+                "chemistry/chemistry_formulas.json"
+            ),
+            "reaction_rules": self.load_json(
+                "chemistry/reaction_rules.json"
+            ),
+            "examples": self.load_csv(
+                "chemistry/chemistry_examples.csv"
+            ),
+            "periodic_table": self.load_csv(
+                "chemistry/periodic_table.csv"
+            ),
+            "concepts": self.load_txt(
+                "chemistry/chemistry_concepts.txt"
+            )
+        }
