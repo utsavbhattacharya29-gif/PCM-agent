@@ -8,9 +8,8 @@ from app.explanation.chemistry_generator import ChemistryExplanationGenerator
 
 class ChemistryAgent:
 
-    def __init__(self):
-
-        self.llm = LocalLLM()
+    def __init__(self, llm=None):
+        self.llm = llm if llm is not None else LocalLLM()
 
         self.parser = ChemistryParser(
             self.llm
