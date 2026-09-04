@@ -1,1 +1,126 @@
+Chemistry is the study of matter, its properties, composition and transformations.
+
+Atoms are the basic units of matter and consist of protons, neutrons and electrons.
+
+Elements are substances consisting of atoms with the same atomic number.
+
+Compounds are substances formed when two or more elements chemically combine in fixed proportions.
+
+Molecules are groups of atoms bonded together.
+
+The atomic number of an element is the number of protons in its nucleus.
+
+The mass number is the total number of protons and neutrons in an atom.
+
+Isotopes are atoms of the same element having different numbers of neutrons.
+
+Ions are charged atoms or groups of atoms formed by gaining or losing electrons.
+
+A mole is a unit representing a fixed number of particles, approximately 6.022e23.
+
+Molar mass is the mass of one mole of a substance.
+
+Stoichiometry is the quantitative study of reactants and products in chemical reactions.
+
+A chemical equation represents a chemical reaction using chemical formulas and coefficients.
+
+Acids are substances that increase hydrogen ion concentration in aqueous solution.
+
+Bases are substances that increase hydroxide ion concentration or accept protons.
+
+pH measures the acidity or basicity of an aqueous solution.
+
+A neutral solution has equal concentrations of hydrogen and hydroxide ions.
+
+Oxidation is the loss of electrons.
+
+Reduction is the gain of electrons.
+
+A redox reaction contains both oxidation and reduction.
+
+Chemical equilibrium occurs when forward and reverse reaction rates become equal.
+
+A catalyst changes reaction rate by providing an alternative pathway with lower activation energy.
+
+Activation energy is the minimum energy required for a reaction to occur.
+
+Molarity is the number of moles of solute per liter of solution.
+
+Density is mass per unit volume.
+
+The ideal gas law is PV = nRT.
+
+Kinetic energy in chemistry refers to the energy associated with particle motion.
+
+Exothermic reactions release heat to the surroundings.
+
+Endothermic reactions absorb heat from the surroundings.
+
+A limiting reagent is the reactant that is consumed first in a chemical reaction.
+
+Theoretical yield is the maximum amount of product predicted by stoichiometry.
+
+Actual yield is the amount of product actually obtained experimentally.
+
+Percentage yield compares actual yield with theoretical yield.
+
+Electrochemistry studies chemical reactions involving electron transfer and electrical energy.
+
+Organic chemistry primarily studies carbon-containing compounds.
+
+Inorganic chemistry studies compounds and elements outside the main scope of organic chemistry.
+
+Physical chemistry applies physical principles to understand chemical systems.
+
+Analytical chemistry deals with identifying and measuring chemical substances.
+
+The periodic table organizes elements according to atomic number and recurring chemical properties.
+
+Groups are vertical columns in the periodic table.
+
+Periods are horizontal rows in the periodic table.
+
+Metals generally conduct heat and electricity and tend to lose electrons.
+
+Nonmetals generally have poor electrical conductivity and tend to gain or share electrons.
+
+Noble gases are highly unreactive elements in group 18.
+
+Alkali metals are highly reactive elements in group 1.
+
+Alkaline earth metals belong to group 2.
+
+Halogens belong to group 17 and are highly reactive nonmetals.
+
+Chemical bonds include ionic, covalent and metallic bonding.
+
+Ionic bonding involves electrostatic attraction between oppositely charged ions.
+
+Covalent bonding involves sharing of electrons between atoms.
+
+A polar covalent bond has unequal sharing of electrons.
+
+A nonpolar covalent bond has approximately equal sharing of electrons.
+
+Intermolecular forces act between molecules.
+
+Hydrogen bonding is a relatively strong intermolecular interaction involving hydrogen bonded to highly electronegative atoms.
+
+Solubility is the ability of a substance to dissolve in a solvent.
+
+A solution contains a solute dissolved in a solvent.
+
+Concentration describes the amount of solute present in a given amount of solution.
+
+Le Chatelier's principle describes how an equilibrium system responds to changes in conditions.
+
+Reaction rate describes how quickly reactants are converted into products.
+
+Increasing temperature generally increases the rate of many chemical reactions.
+
+Increasing reactant concentration can increase reaction rate.
+
+A balanced chemical equation obeys conservation of atoms.
+
+Coefficients in balanced equations represent mole ratios.
 
