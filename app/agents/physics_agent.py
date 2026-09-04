@@ -8,8 +8,8 @@ from app.explanation.physics_generator import PhysicsExplanationGenerator
 
 class PhysicsAgent:
 
-    def __init__(self):
-        self.llm = LocalLLM()
+    def __init__(self, llm=None):
+        self.llm = llm if llm is not None else LocalLLM()
         self.parser = PhysicsParser(self.llm)
         self.retriever = PhysicsRetriever()
         self.solver = PhysicsSolver()
