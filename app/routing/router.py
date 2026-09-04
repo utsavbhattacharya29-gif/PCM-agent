@@ -18,11 +18,10 @@ class Router:
             "force", "mass", "acceleration", "velocity",
             "speed", "momentum", "gravity", "gravitational",
             "kinetic energy", "potential energy", "work",
-            "power", "distance", "displacement", "newton",
-            "joule", "watt", "meter", "m/s", "m/s^2",
-            "kg", "friction", "pressure", "density",
-            "electric", "voltage", "current", "resistance",
-            "frequency", "wavelength"
+            "power", "displacement", "newton", "joule",
+            "watt", "m/s", "m/s^2", "kg", "friction",
+            "pressure", "density", "voltage", "current",
+            "resistance", "frequency", "wavelength"
         ]
 
         chemistry_keywords = [
@@ -30,7 +29,7 @@ class Router:
             "molality", "molar mass", "element",
             "atomic number", "atomic mass", "compound",
             "chemical", "reaction", "reactant", "product",
-            "periodic table", "ph", "acid", "base",
+            "periodic table", "acid", "base",
             "concentration", "stoichiometry", "oxidation",
             "reduction", "electron", "proton", "neutron",
             "h2o", "co2", "nacl"
