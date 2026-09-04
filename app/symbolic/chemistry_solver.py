@@ -1,4 +1,5 @@
 import sympy as sp
+import re
 
 
 class ChemistrySolver:
@@ -37,38 +38,68 @@ class ChemistrySolver:
 
         formula = self._normalize_formula(formula)
 
-        lhs, rhs = formula.split("=")
-
-        lhs = sp.sympify(lhs.strip())
-        rhs = sp.sympify(rhs.strip())
-
-        equation = sp.Eq(lhs, rhs)
-
         substitutions = {}
 
         for name, value in variables.items():
             normalized_name = self._normalize_variable(name)
+
             substitutions[
                 sp.Symbol(normalized_name)
             ] = value
 
-        equation = equation.subs(substitutions)
+        if "=" in formula:
 
-        unknown_symbol = sp.Symbol(
-            self._normalize_variable(unknown)
-        )
+            lhs, rhs = formula.split("=", 1)
 
-        solutions = sp.solve(
-            equation,
-            unknown_symbol
-        )
+            lhs = sp.sympify(lhs.strip())
+            rhs = sp.sympify(rhs.strip())
 
-        if not solutions:
-            raise ValueError(
-                f"Could not solve for {unknown}"
+            equation = sp.Eq(lhs, rhs)
+
+            equation = equation.subs(substitutions)
+
+            unknown_symbol = sp.Symbol(
+                self._normalize_variable(unknown)
             )
 
-        result = solutions[0]
+            solutions = sp.solve(
+                equation,
+                unknown_symbol
+            )
+
+            if not solutions:
+                raise ValueError(
+                    f"Could not solve for {unknown}"
+                )
+
+            result = solutions[0]
+
+        else:
+
+            expression = sp.sympify(formula)
+
+            expression = expression.subs(
+                substitutions
+            )
+
+            unknown_symbol = sp.Symbol(
+                self._normalize_variable(unknown)
+            )
+
+            if unknown_symbol not in expression.free_symbols:
+                result = expression
+            else:
+                solutions = sp.solve(
+                    expression,
+                    unknown_symbol
+                )
+
+                if not solutions:
+                    raise ValueError(
+                        f"Could not solve for {unknown}"
+                    )
+
+                result = solutions[0]
 
         if result.is_Integer:
             return int(result)
@@ -114,8 +145,6 @@ class ChemistrySolver:
             "Ca": 40.078
         }
 
-        import re
-
         tokens = re.findall(
             r"([A-Z][a-z]?)(\d*)",
             formula
@@ -141,7 +170,6 @@ class ChemistrySolver:
     def _balance_reaction(self, problem):
 
         from sympy import Matrix
-        from sympy.abc import x
 
         reaction = problem.get("reaction")
 
@@ -167,9 +195,6 @@ class ChemistrySolver:
         all_compounds = reactants + products
 
         elements = set()
-
-        import re
-
         parsed = []
 
         for compound in all_compounds:
@@ -214,9 +239,7 @@ class ChemistrySolver:
 
             matrix.append(row)
 
-        nullspace = Matrix(
-            matrix
-        ).nullspace()
+        nullspace = Matrix(matrix).nullspace()
 
         if not nullspace:
             raise ValueError(
@@ -260,8 +283,7 @@ class ChemistrySolver:
 
         left = " + ".join(
             f"{c}{compound}"
-            for c, compound
-            in zip(
+            for c, compound in zip(
                 left_coefficients,
                 reactants
             )
@@ -269,8 +291,7 @@ class ChemistrySolver:
 
         right = " + ".join(
             f"{c}{compound}"
-            for c, compound
-            in zip(
+            for c, compound in zip(
                 right_coefficients,
                 products
             )
