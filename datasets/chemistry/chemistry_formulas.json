@@ -1,1 +1,122 @@
-
+[
+  {
+    "id": "moles",
+    "topic": "stoichiometry",
+    "formula": "n = m/M",
+    "description": "Number of moles equals mass divided by molar mass."
+  },
+  {
+    "id": "molarity",
+    "topic": "solutions",
+    "formula": "M = n/V",
+    "description": "Molarity equals number of moles divided by volume in litres."
+  },
+  {
+    "id": "density",
+    "topic": "matter",
+    "formula": "d = m/V",
+    "description": "Density equals mass divided by volume."
+  },
+  {
+    "id": "ideal_gas",
+    "topic": "gases",
+    "formula": "PV = nRT",
+    "description": "The ideal gas law relates pressure, volume, amount, temperature, and gas constant."
+  },
+  {
+    "id": "ph",
+    "topic": "acids_and_bases",
+    "formula": "pH = -log10[H+]",
+    "description": "pH is the negative base-10 logarithm of hydrogen ion concentration."
+  },
+  {
+    "id": "poh",
+    "topic": "acids_and_bases",
+    "formula": "pOH = -log10[OH-]",
+    "description": "pOH is the negative base-10 logarithm of hydroxide ion concentration."
+  },
+  {
+    "id": "ph_poh",
+    "topic": "acids_and_bases",
+    "formula": "pH + pOH = 14",
+    "description": "At 25 degrees Celsius, pH and pOH add up to 14."
+  },
+  {
+    "id": "percent_yield",
+    "topic": "stoichiometry",
+    "formula": "percent_yield = actual/theoretical * 100",
+    "description": "Percentage yield compares actual yield with theoretical yield."
+  },
+  {
+    "id": "mole_fraction",
+    "topic": "solutions",
+    "formula": "X_A = n_A/n_total",
+    "description": "Mole fraction equals moles of a component divided by total moles."
+  },
+  {
+    "id": "gas_density",
+    "topic": "gases",
+    "formula": "d = PM/RT",
+    "description": "Gas density can be calculated from pressure, molar mass, gas constant, and temperature."
+  },
+  {
+    "id": "heat",
+    "topic": "thermochemistry",
+    "formula": "q = m*c*deltaT",
+    "description": "Heat transferred equals mass times specific heat capacity times temperature change."
+  },
+  {
+    "id": "enthalpy",
+    "topic": "thermochemistry",
+    "formula": "deltaH = H_products - H_reactants",
+    "description": "Enthalpy change equals enthalpy of products minus enthalpy of reactants."
+  },
+  {
+    "id": "gibbs_free_energy",
+    "topic": "thermodynamics",
+    "formula": "deltaG = deltaH - T*deltaS",
+    "description": "Gibbs free energy change relates enthalpy, temperature, and entropy changes."
+  },
+  {
+    "id": "equilibrium_constant",
+    "topic": "equilibrium",
+    "formula": "Kc = products/reactants",
+    "description": "The equilibrium constant is expressed using equilibrium concentrations."
+  },
+  {
+    "id": "rate_law",
+    "topic": "chemical_kinetics",
+    "formula": "rate = k[A]^m[B]^n",
+    "description": "A general rate law relates reaction rate to reactant concentrations."
+  },
+  {
+    "id": "half_life_first_order",
+    "topic": "chemical_kinetics",
+    "formula": "t_half = 0.693/k",
+    "description": "For a first-order reaction, half-life equals 0.693 divided by the rate constant."
+  },
+  {
+    "id": "nernst_equation",
+    "topic": "electrochemistry",
+    "formula": "E = E0 - (0.0592/n)log10(Q)",
+    "description": "The Nernst equation relates cell potential to standard potential and reaction quotient at 25 degrees Celsius."
+  },
+  {
+    "id": "faraday",
+    "topic": "electrochemistry",
+    "formula": "Q = nF",
+    "description": "Electrical charge equals number of moles of electrons multiplied by Faraday's constant."
+  },
+  {
+    "id": "beer_lambert",
+    "topic": "analytical_chemistry",
+    "formula": "A = epsilon*l*c",
+    "description": "Absorbance equals molar absorptivity times path length times concentration."
+  },
+  {
+    "id": "dilution",
+    "topic": "solutions",
+    "formula": "M1V1 = M2V2",
+    "description": "The dilution equation relates initial and final concentrations and volumes."
+  }
+]
