@@ -9,8 +9,8 @@ from app.explanation.generator import ExplanationGenerator
 
 class MathAgent:
 
-    def __init__(self):
-        self.llm = LocalLLM()
+    def __init__(self, llm=None):
+        self.llm = llm if llm is not None else LocalLLM()
         self.parser = MathParser(self.llm)
         self.retriever = MathRetriever()
         self.solver = MathSolver()
