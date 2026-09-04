@@ -28,9 +28,7 @@ class ChemistryAgent:
 
     def solve(self, question):
 
-        problem = self.parser.parse(
-            question
-        )
+        problem = self.parser.parse(question)
 
         knowledge = self.retriever.search(
             question,
