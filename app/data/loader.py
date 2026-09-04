@@ -46,30 +46,30 @@ class DatasetLoader:
         }
     def load_chemistry_datasets(self):
 
-        formulas = self.load_json(
-            "data/chemistry/chemistry_formulas.json"
-        )
+    formulas = self.load_json(
+        "chemistry/chemistry_formulas.json"
+    )
 
-        reaction_rules = self.load_json(
-            "data/chemistry/reaction_rules.json"
-        )
+    reaction_rules = self.load_json(
+        "chemistry/reaction_rules.json"
+    )
 
-        examples = self.load_csv(
-            "data/chemistry/chemistry_examples.csv"
-        )
+    examples = self.load_csv(
+        "chemistry/chemistry_examples.csv"
+    )
 
-        periodic_table = self.load_csv(
-            "data/chemistry/periodic_table.csv"
-        )
+    periodic_table = self.load_csv(
+        "chemistry/periodic_table.csv"
+    )
 
-        concepts = self.load_text(
-            "data/chemistry/chemistry_concepts.txt"
-        )
+    concepts = self.load_text(
+        "chemistry/chemistry_concepts.txt"
+    )
 
-        return {
-            "formulas": formulas,
-            "reaction_rules": reaction_rules,
-            "examples": examples,
-            "periodic_table": periodic_table,
-            "concepts": concepts
+    return {
+        "formulas": formulas,
+        "reaction_rules": reaction_rules,
+        "examples": examples,
+        "periodic_table": periodic_table,
+        "concepts": concepts
     }
